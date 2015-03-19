@@ -24,9 +24,9 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
   the redirect URI is to this page, e.g:
   http://localhost:8080/user-example.php
  ************************************************/
- $client_id = '<YOUR_CLIENT_ID>';
- $client_secret = '<YOUR_CLIENT_SECRET>';
- $redirect_uri = '<YOUR_REDIRECT_URI>';
+ $client_id = '130248240078-v37irj0l06o9ksnnb5p7o5edtt3tc2ep.apps.googleusercontent.com';
+ $client_secret = 'K_xl-kwCnjSiMKQuuJU8HG_f';
+ $redirect_uri = 'http://condos.ca/externals/google-api-php-client/examples/user-example.php';
 
 /************************************************
   Make an API request on behalf of a user. In

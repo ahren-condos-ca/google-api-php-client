@@ -14,6 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
 session_start();
 include_once "templates/base.php";
 
@@ -36,9 +41,9 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
   Make sure the Books API is enabled on this
   account as well, or the call will fail.
  ************************************************/
-$client_id = '<YOUR_CLIENT_ID>'; //Client ID
-$service_account_name = ''; //Email Address
-$key_file_location = ''; //key.p12
+$client_id = '130248240078-ut0uur7sdsmmstujffjqujt7quvafsds.apps.googleusercontent.com'; //Client ID
+$service_account_name = '130248240078-ut0uur7sdsmmstujffjqujt7quvafsds@developer.gserviceaccount.com'; //Email Address
+$key_file_location = '../af507f42c476.p12'; //key.p12
 
 echo pageHeader("Service Account Access");
 if ($client_id == '<YOUR_CLIENT_ID>'
@@ -62,6 +67,7 @@ $service = new Google_Service_Books($client);
 if (isset($_SESSION['service_token'])) {
   $client->setAccessToken($_SESSION['service_token']);
 }
+echo "<h3>Connecting to Google:</h3>";
 $key = file_get_contents($key_file_location);
 $cred = new Google_Auth_AssertionCredentials(
     $service_account_name,
